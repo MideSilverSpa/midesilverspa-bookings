@@ -1,23 +1,198 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Mide Silver Spa</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mide Silver Spa | Book Now</title>
+
 <style>
-body{font-family:Arial;text-align:center;padding:30px;background:#f8f5f7}
-h1{margin-top:30px}
-a{display:block;padding:15px;margin:20px auto;background:#222;color:white;text-decoration:none;border-radius:8px;max-width:300px}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#f7f3f5;
+  color:#333;
+}
+.container{
+  max-width:600px;
+  margin:auto;
+  padding:20px;
+}
+.header{
+  text-align:center;
+  padding:25px 10px;
+}
+.header h1{
+  margin:0;
+  font-size:34px;
+}
+.header p{
+  color:#777;
+}
+.card{
+  background:white;
+  padding:22px;
+  margin:18px 0;
+  border-radius:15px;
+  box-shadow:0 3px 15px #ddd;
+}
+h2{
+  text-align:center;
+}
+.service{
+  display:flex;
+  justify-content:space-between;
+  padding:13px 0;
+  border-bottom:1px solid #eee;
+}
+.price{
+  font-weight:bold;
+}
+label{
+  display:block;
+  margin-top:15px;
+  margin-bottom:6px;
+  font-weight:bold;
+}
+input,select,textarea{
+  width:100%;
+  box-sizing:border-box;
+  padding:12px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  font-size:15px;
+}
+textarea{
+  height:80px;
+}
+button{
+  width:100%;
+  margin-top:20px;
+  padding:15px;
+  border:0;
+  border-radius:8px;
+  background:#222;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+}
+.footer{
+  text-align:center;
+  color:#888;
+  padding:20px;
+  font-size:14px;
+}
 </style>
 </head>
+
 <body>
 
+<div class="container">
+
+<div class="header">
 <h1>Mide Silver Spa</h1>
 <p>Relax • Refresh • Rejuvenate</p>
+<p>✨ Your wellness journey starts here ✨</p>
+</div>
 
+<div class="card">
+<h2>Our Price List</h2>
+
+<h3>💆 Massages & Body Treatments</h3>
+
+<div class="service"><span>Adult Massage</span><span class="price">R800</span></div>
+<div class="service"><span>Full Body Massage</span><span class="price">R700</span></div>
+<div class="service"><span>Aromatherapy Massage</span><span class="price">R700</span></div>
+<div class="service"><span>Hot Stone Body Massage</span><span class="price">R700</span></div>
+<div class="service"><span>Swedish Massage</span><span class="price">R400</span></div>
+<div class="service"><span>Body Scrub</span><span class="price">R500</span></div>
+<div class="service"><span>Bacial (Back Facial)</span><span class="price">R500</span></div>
+
+<h3>✨ Facials & Waxing</h3>
+
+<div class="service"><span>Facials</span><span class="price">R500</span></div>
+<div class="service"><span>Waxing — Single Area</span><span class="price">R300</span></div>
+<div class="service"><span>Waxing — 2-Service Combo</span><span class="price">R250 each</span></div>
+
+<h3>🦶 Foot Care</h3>
+
+<div class="service"><span>Pedicure & Foot Scrub</span><span class="price">R400</span></div>
+<div class="service"><span>Foot Scrub + Foot Massage</span><span class="price">R350</span></div>
+
+</div>
+
+<div class="card">
 <h2>Book Your Appointment</h2>
-<p>Facials • Massages • Body Scrubs • Waxing</p>
 
-<a href="https://wa.me/27754653804">Book on WhatsApp</a>
+<form onsubmit="book(event)">
+
+<label>Name</label>
+<input id="name" type="text" placeholder="Your name" required>
+
+<label>Phone Number</label>
+<input id="phone" type="tel" placeholder="Your phone number" required>
+
+<label>Choose Service</label>
+<select id="service" required>
+<option value="">Select a service</option>
+<option>Adult Massage — R800</option>
+<option>Full Body Massage — R700</option>
+<option>Aromatherapy Massage — R700</option>
+<option>Hot Stone Body Massage — R700</option>
+<option>Swedish Massage — R400</option>
+<option>Body Scrub — R500</option>
+<option>Bacial (Back Facial) — R500</option>
+<option>Facials — R500</option>
+<option>Waxing — Single Area — R300</option>
+<option>Waxing — 2-Service Combo — R250 each</option>
+<option>Pedicure & Foot Scrub — R400</option>
+<option>Foot Scrub + Foot Massage — R350</option>
+</select>
+
+<label>Preferred Date</label>
+<input id="date" type="date" required>
+
+<label>Preferred Time</label>
+<input id="time" type="time" required>
+
+<label>Message</label>
+<textarea id="message" placeholder="Any additional information?"></textarea>
+
+<button type="submit">💬 Book on WhatsApp</button>
+
+</form>
+</div>
+
+<div class="footer">
+Mide Silver Spa<br>
+Relax • Refresh • Rejuvenate
+</div>
+
+</div>
+
+<script>
+function book(e){
+e.preventDefault();
+
+let name=document.getElementById("name").value;
+let phone=document.getElementById("phone").value;
+let service=document.getElementById("service").value;
+let date=document.getElementById("date").value;
+let time=document.getElementById("time").value;
+let message=document.getElementById("message").value;
+
+let text=
+"Hello Mide Silver Spa!%0A%0A"+
+"I would like to book an appointment.%0A%0A"+
+"Name: "+encodeURIComponent(name)+"%0A"+
+"Phone: "+encodeURIComponent(phone)+"%0A"+
+"Service: "+encodeURIComponent(service)+"%0A"+
+"Date: "+encodeURIComponent(date)+"%0A"+
+"Time: "+encodeURIComponent(time)+"%0A"+
+"Message: "+encodeURIComponent(message);
+
+window.location.href="https://wa.me/27754653804?text="+text;
+}
+</script>
 
 </body>
 </html>
