@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mide Silver Spa | Book an Appointment</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:#f6f2ec;color:#29231f}
+.wrap{max-width:650px;margin:auto;padding:28px 18px}
+.card{background:white;border-radius:20px;padding:26px;box-shadow:0 8px 30px #0001}
+h1{text-align:center;margin:0 0 6px;font-size:30px}
+.sub{text-align:center;margin:0 0 24px;color:#76685e}
+label{display:block;margin:15px 0 7px;font-weight:700}
+input,select{width:100%;box-sizing:border-box;padding:13px;border:1px solid #d8cec4;border-radius:10px;font-size:16px;background:#fff}
+.services{display:grid;gap:8px}
+.service{display:flex;justify-content:space-between;padding:12px;border:1px solid #e2d8ce;border-radius:10px}
+button{width:100%;margin-top:22px;padding:15px;border:0;border-radius:12px;background:#29231f;color:white;font-size:17px;font-weight:700}
+.note{text-align:center;font-size:13px;color:#76685e;margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card">
+<h1>MIDE SILVER SPA</h1>
+<p class="sub">Relax • Refresh • Renew | Pretoria</p>
+
+<h3>Our Services</h3>
+<div class="services">
+<div class="service"><span>Full Body Massage</span><b>R700</b></div>
+<div class="service"><span>Swedish Massage</span><b>R400</b></div>
+<div class="service"><span>Aromatherapy Massage</span><b>R700</b></div>
+<div class="service"><span>Hot Stone Body Massage</span><b>R700</b></div>
+<div class="service"><span>Body Scrub</span><b>R500</b></div>
+<div class="service"><span>Bacial (Back Facial)</span><b>R500</b></div>
+<div class="service"><span>Facials</span><b>R500</b></div>
+<div class="service"><span>Waxing — Single Area</span><b>R300</b></div>
+<div class="service"><span>Waxing — 2-Service Combo</span><b>R250 each</b></div>
+<div class="service"><span>Foot Scrub + Foot Massage</span><b>R350</b></div>
+<div class="service"><span>Pedicure + Foot Scrub</span><b>R400</b></div>
+</div>
+
+<form id="booking">
+<label for="name">Your name</label>
+<input id="name" required>
+
+<label for="phone">Phone number</label>
+<input id="phone" type="tel" required>
+
+<label for="service">Service</label>
+<select id="service" required>
+<option value="">Select a service</option>
+<option>Full Body Massage — R700</option>
+<option>Swedish Massage — R400</option>
+<option>Aromatherapy Massage — R700</option>
+<option>Hot Stone Body Massage — R700</option>
+<option>Body Scrub — R500</option>
+<option>Bacial (Back Facial) — R500</option>
+<option>Facials — R500</option>
+<option>Waxing — Single Area — R300</option>
+<option>Waxing — 2-Service Combo — R250 each</option>
+<option>Foot Scrub + Foot Massage — R350</option>
+<option>Pedicure + Foot Scrub — R400</option>
+</select>
+
+<label for="date">Preferred date</label>
+<input id="date" type="date" required>
+
+<label for="time">Preferred time</label>
+<input id="time" type="time" required>
+
+<button type="submit">Request Booking on WhatsApp</button>
+</form>
+
+<p class="note">Booking requests are confirmed by Mide Silver Spa. WhatsApp: 075 465 3804</p>
+</div></div>
+
+<script>
+document.getElementById("date").min = new Date().toISOString().split("T")[0];
+document.getElementById("booking").addEventListener("submit", function(e){
+ e.preventDefault();
+ const name=document.getElementById("name").value;
+ const phone=document.getElementById("phone").value;
+ const service=document.getElementById("service").value;
+ const date=document.getElementById("date").value;
+ const time=document.getElementById("time").value;
+ const msg=`Hello Mide Silver Spa, I would like to request a booking.%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AService: ${encodeURIComponent(service)}%0APreferred date: ${encodeURIComponent(date)}%0APreferred time: ${encodeURIComponent(time)}`;
+ window.location.href="https://wa.me/27754653804?text="+msg;
+});
+</script>
+</body>
+</html>
